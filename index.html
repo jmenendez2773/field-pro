@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Field Pro</title>
+<style>
+:root{
+  --bg:#0b1220; --surface:#111c30; --surface2:#16233c; --line:#243349;
+  --text:#e8eef7; --muted:#9fb0c7; --accent:#3b82f6; --accent2:#22c55e;
+  --warn:#f59e0b; --danger:#ef4444; --radius:14px; --maxw:1100px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.5;font-size:16px;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+button,input,select,textarea{font-family:inherit;font-size:16px}
+a{color:var(--accent)}
+.app{max-width:var(--maxw);margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+header.top{
+  position:sticky;top:0;z-index:50;background:rgba(11,18,32,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding:env(safe-area-inset-top) 16px 0;
+}
+.top-row{display:flex;align-items:center;gap:12px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.3px}
+.brand .dot{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.spacer{flex:1}
+.lang-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang-toggle button{background:transparent;color:var(--muted);border:0;padding:7px 13px;cursor:pointer;font-weight:600}
+.lang-toggle button.active{background:var(--accent);color:#fff}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;padding:8px 0 10px;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{
+  white-space:nowrap;background:var(--surface);color:var(--muted);border:1px solid var(--line);
+  padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;display:flex;gap:7px;align-items:center
+}
+nav.tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+main{flex:1;padding:18px 16px 90px}
+h1{font-size:22px;margin:0 0 4px}
+h2{font-size:18px;margin:22px 0 10px}
+h3{font-size:15px;margin:16px 0 8px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+p.lead{color:var(--muted);margin-top:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:14px}
+.card.tight{padding:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:680px){.grid.cols2{grid-template-columns:1fr 1fr}.grid.cols3{grid-template-columns:1fr 1fr 1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin:0 0 5px;font-weight:600}
+input,select,textarea{
+  width:100%;background:var(--surface2);border:1px solid var(--line);color:var(--text);
+  border-radius:10px;padding:11px 12px;outline:none
+}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{min-height:80px;resize:vertical}
+.field{margin-bottom:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:10px;
+  padding:11px 16px;font-weight:700;cursor:pointer;background:var(--accent);color:#fff}
+.btn:active{transform:translateY(1px)}
+.btn.sec{background:var(--surface2);color:var(--text);border:1px solid var(--line)}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.btn.green{background:var(--accent2)}
+.btn.warn{background:var(--warn);color:#1a1300}
+.btn.danger{background:var(--danger)}
+.btn.sm{padding:8px 12px;font-size:14px}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px}
+.scroll-x{overflow-x:auto}
+.pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700;background:var(--surface2);border:1px solid var(--line)}
+.pill.sol{background:#1e3a8a33;border-color:#3b82f6}
+.pill.bat{background:#14532d33;border-color:#22c55e}
+.pill.roo{background:#78350f33;border-color:#f59e0b}
+.muted{color:var(--muted)}
+.right{text-align:right}
+.center{text-align:center}
+.divider{height:1px;background:var(--line);margin:14px 0}
+.note{font-size:13px;color:var(--muted)}
+.badge{font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--accent);color:#fff}
+.acc{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden;background:var(--surface)}
+.acc>summary{cursor:pointer;padding:14px 16px;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary .chev{transition:.2s;color:var(--muted)}
+.acc[open]>summary .chev{transform:rotate(180deg)}
+.acc .acc-body{padding:0 16px 16px;border-top:1px solid var(--line)}
+.photos{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.photo{position:relative;width:92px;height:92px;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--surface2)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo .rm{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.65);
+  color:#fff;border:0;cursor:pointer;font-size:13px;line-height:22px;text-align:center}
+.add-photo{width:92px;height:92px;border:2px dashed var(--line);border-radius:10px;display:flex;align-items:center;
+  justify-content:center;flex-direction:column;gap:4px;color:var(--muted);cursor:pointer;font-size:12px;text-align:center}
+.saved-item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--surface)}
+.saved-item .meta{flex:1;min-width:0}
+.saved-item .meta .ttl{font-weight:700}
+.saved-item .meta .sub{font-size:13px;color:var(--muted)}
+.totals{margin-left:auto;max-width:320px}
+.totals .row{display:flex;justify-content:space-between;padding:6px 0}
+.totals .row.grand{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;font-size:20px;font-weight:800}
+.empty{text-align:center;color:var(--muted);padding:40px 16px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--accent2);color:#04210f;
+  padding:12px 18px;border-radius:999px;font-weight:700;z-index:200;box-shadow:0 8px 30px rgba(0,0,0,.4);opacity:0;
+  pointer-events:none;transition:.25s}
+.toast.show{opacity:1}
+.kbd{font-family:monospace;background:var(--surface2);padding:1px 6px;border-radius:6px;border:1px solid var(--line)}
+.calc-result{background:var(--surface2);border:1px solid var(--accent);border-radius:12px;padding:14px;margin-top:12px}
+.calc-result .big{font-size:24px;font-weight:800;color:var(--accent2)}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.seg button{flex:1;min-width:120px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);padding:10px;border-radius:10px;cursor:pointer;font-weight:600}
+.seg button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 230px);min-height:360px}
+.chat-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.ai-toggle{display:flex;align-items:center;gap:8px;margin-left:auto;font-size:13px;color:var(--muted);font-weight:600}
+.switch{position:relative;width:42px;height:24px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);cursor:pointer;transition:.2s}
+.switch.on{background:var(--accent2);border-color:var(--accent2)}
+.switch .knob{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.switch.on .knob{left:21px}
+.upload-bar{width:100%;border:1.5px dashed var(--accent);background:var(--surface);color:var(--accent);border-radius:12px;
+  padding:13px;text-align:center;font-weight:700;cursor:pointer;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px}
+.msgs{flex:1;overflow-y:auto;padding:4px 2px 8px;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:88%;padding:12px 14px;border-radius:14px;white-space:pre-wrap;word-wrap:break-word;line-height:1.5}
+.msg.bot{background:var(--surface);border:1px solid var(--line);align-self:flex-start;border-top-left-radius:4px}
+.msg.user{background:var(--accent);color:#fff;align-self:flex-end;border-top-right-radius:4px}
+.msg .who{font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;opacity:.8;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.msg img{max-width:200px;border-radius:8px;margin-top:8px;display:block}
+.msg.typing{color:var(--muted);font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.chip{background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:600;cursor:pointer}
+.chip:hover{border-color:var(--accent)}
+.chat-input{display:flex;align-items:flex-end;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:7px;margin-top:6px}
+.chat-input textarea{border:0;background:transparent;resize:none;min-height:24px;max-height:120px;padding:8px;flex:1}
+.chat-input textarea:focus{border:0;outline:none}
+.icon-btn{width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--surface2);color:var(--text);cursor:pointer;font-size:18px;flex:0 0 auto}
+.icon-btn.send{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pending-photo{position:relative;display:inline-block;margin:0 6px 6px 0}
+.pending-photo img{width:54px;height:54px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.pending-photo .rm{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--danger);color:#fff;border:0;cursor:pointer;font-size:12px}
+.ai-note{font-size:12px;color:var(--warn);margin-top:8px}
+@media print{
+  header.top,nav.tabs,.no-print{display:none!important}
+  body{background:#fff;color:#000}
+  .card{border:1px solid #ccc;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="top-row">
+      <div class="brand"><span class="dot"></span><span>Field Pro</span></div>
+      <div class="spacer"></div>
+      <div class="lang-toggle">
+        <button id="lang-en" onclick="setLang('en')">EN</button>
+        <button id="lang-es" onclick="setLang('es')">ES</button>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </header>
+  <main id="view"></main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+"use strict";
+var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+var state={lang:LS.get('fp_lang','en'),tab:'nec',necSection:'chat',chat:LS.get('fp_chat',[]),aiOn:LS.get('fp_aiOn',true),pendingPhoto:null,invoices:LS.get('fp_invoices',[]),reports:LS.get('fp_reports',[]),settings:LS.get('fp_settings',{bizName:'',bizPhone:'',bizEmail:'',bizAddr:''}),editingInvoice:null,editingReport:null};
+function saveInvoices(){LS.set('fp_invoices',state.invoices);}
+function saveReports(){LS.set('fp_reports',state.reports);}
+function saveSettings(){LS.set('fp_settings',state.settings);}
+var T={en:{tab_nec:"NEC Assistant",tab_inv:"Invoices",tab_rep:"Job Reports",tab_set:"Settings",nec_chat:"AI Chat",nec_reference:"Code Reference",nec_calc:"Calculators",nec_equip:"Equipment",nec_trouble:"Troubleshooting",nec_weather:"Weather Safety",nec_glossary:"Glossary",nec_title:"NEC 2020/2023 Assistant",nec_sub:"Interactive assistant -- ask in any language.",ai_chat:"AI Chat",upload_photo:"Upload Photo for Analysis",chat_welcome:"Hi! I'm your NEC code assistant.",chat_placeholder:"Ask about NEC 2020/2023 codes, equipment specs...",chat_thinking:"Thinking...",you:"You",assistant:"NEC Assistant",ai_not_config:"AI mode is off or not connected.",photo_needs_ai:"Photo analysis needs AI Chat turned on.",save:"Save",duplicate:"Duplicate",delete:"Delete",edit:"Edit",cancel:"Cancel",newItem:"New",back:"Back",print:"Print / PDF",email:"Email",text:"Text",share:"Share",clear:"Clear",add:"Add",remove:"Remove",saved:"Saved",deleted:"Deleted",copied:"Duplicated",nothingSaved:"Nothing saved yet.",confirmDelete:"Delete this? This cannot be undone.",inv_title:"Invoices",inv_sub:"Create and manage invoices.",inv_new:"New Invoice",inv_type:"Invoice type",type_elec:"Electrical",type_solar:"Solar / HVAC",type_trouble:"Troubleshooting",inv_number:"Invoice #",inv_date:"Date",inv_due:"Due date",inv_status:"Status",st_draft:"Draft",st_sent:"Sent",st_paid:"Paid",billto:"Bill to",client_name:"Client name",client_addr:"Address",client_phone:"Phone",client_email:"Email",system_ref:"System reference",system_type:"System type",brand:"Brand / make",items:"Line items",desc:"Description",qty:"Qty",rate:"Rate",amount:"Amount",addItem:"Add line",notes:"Notes",terms:"Notes / terms",tax:"Tax %",subtotal:"Subtotal",total:"Total",photos:"Photos",addPhoto:"Add photo",photoHint:"From files or camera",savedInvoices:"Saved invoices",rep_title:"Job Reports",rep_sub:"Field service reports.",rep_new:"New Report",job_no:"Job #",job_type:"Job type",crew:"Crew",phase:"Phase",inspection:"Inspection type",site:"Site / customer",tech:"Technician",date:"Date",work_done:"Work performed",materials:"Materials used",issues:"Issues found",recs:"Recommendations",savedReports:"Saved reports",sol:"Solar PV (SOL)",bat:"Battery / ESS (BAT)",roo:"Roofing (ROO)",ph_scheduled:"Scheduled",ph_progress:"In Progress",ph_qc:"QC",ph_complete:"Complete",set_title:"Settings",set_sub:"Your details auto-fill the From section.",biz_name:"Your name / business",biz_phone:"Phone",biz_email:"Email",biz_addr:"Address",set_data:"Data",set_export:"Export all data",set_import:"Import data",set_wipe:"Erase all data",set_wipeConfirm:"Erase ALL data on this device?",storedLocally:"All data is stored locally on this device only.",from:"From",select:"Select...",untitled:"Untitled"},es:{tab_nec:"Asistente NEC",tab_inv:"Facturas",tab_rep:"Reportes",tab_set:"Ajustes"}};
+function t(k){var l=T[state.lang]||T.en;return(l[k]!=null)?l[k]:(T.en[k]!=null?T.en[k]:k);}
+function L(o){if(o==null)return "";return(typeof o==='object')?(o[state.lang]!=null?o[state.lang]:o.en):o;}
+function el(id){return document.getElementById(id);}
+function esc(s){return(s==null?'':String(s)).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function money(n){n=Number(n)||0;return '$'+n.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});}
+function todayISO(){return new Date().toISOString().slice(0,10);}
+function toast(msg){var e=document.getElementById('toast');e.textContent=msg;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(function(){e.classList.remove('show');},1800);}
+function setLang(l){state.lang=l;LS.set('fp_lang',l);document.documentElement.lang=l;render();}
+var TABS=[['nec','tab_nec','⚡'],['inv','tab_inv','🧾'],['rep','tab_rep','📋'],['set','tab_set','⚙️']];
+function go(tab){state.tab=tab;state.editingInvoice=null;state.editingReport=null;window.scrollTo(0,0);render();}
+function renderTabs(){el('lang-en').className=state.lang==='en'?'active':'';el('lang-es').className=state.lang==='es'?'active':'';el('tabs').innerHTML=TABS.map(function(x){return '<button class="'+(state.tab===x[0]?'active':'')+'" onclick="go(''+x[0]+'')"><span>'+x[2]+'</span>'+esc(t(x[1]))+'</button>';}).join('');}
+function render(){document.documentElement.lang=state.lang;renderTabs();var v=el('view');v.innerHTML='<p>Field Pro loaded. Full version includes NEC Assistant, Invoices, Job Reports, and Settings.</p>';}
+document.documentElement.lang=state.lang;
+render();
+</script>
+</body>
+</html>
