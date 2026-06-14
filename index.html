@@ -8,25 +8,14 @@
 <meta name="mobile-web-app-capable" content="yes">
 <title>Field Pro</title>
 <style>
-:root{
-  --bg:#0b1220; --surface:#111c30; --surface2:#16233c; --line:#243349;
-  --text:#e8eef7; --muted:#9fb0c7; --accent:#3b82f6; --accent2:#22c55e;
-  --warn:#f59e0b; --danger:#ef4444; --radius:14px; --maxw:1100px;
-}
+:root{--bg:#0b1220;--surface:#111c30;--surface2:#16233c;--line:#243349;--text:#e8eef7;--muted:#9fb0c7;--accent:#3b82f6;--accent2:#22c55e;--warn:#f59e0b;--danger:#ef4444;--radius:14px;--maxw:1100px;}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  background:var(--bg);color:var(--text);line-height:1.5;font-size:16px;
-  padding-bottom:env(safe-area-inset-bottom);
-}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:16px;padding-bottom:env(safe-area-inset-bottom);}
 button,input,select,textarea{font-family:inherit;font-size:16px}
 a{color:var(--accent)}
 .app{max-width:var(--maxw);margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
-header.top{
-  position:sticky;top:0;z-index:50;background:rgba(11,18,32,.92);backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);padding:env(safe-area-inset-top) 16px 0;
-}
+header.top{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:env(safe-area-inset-top) 16px 0;}
 .top-row{display:flex;align-items:center;gap:12px;height:60px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.3px}
 .brand .dot{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
@@ -36,10 +25,7 @@ header.top{
 .lang-toggle button.active{background:var(--accent);color:#fff}
 nav.tabs{display:flex;gap:4px;overflow-x:auto;padding:8px 0 10px;scrollbar-width:none}
 nav.tabs::-webkit-scrollbar{display:none}
-nav.tabs button{
-  white-space:nowrap;background:var(--surface);color:var(--muted);border:1px solid var(--line);
-  padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;display:flex;gap:7px;align-items:center
-}
+nav.tabs button{white-space:nowrap;background:var(--surface);color:var(--muted);border:1px solid var(--line);padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;display:flex;gap:7px;align-items:center}
 nav.tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 main{flex:1;padding:18px 16px 90px}
 h1{font-size:22px;margin:0 0 4px}
@@ -51,15 +37,11 @@ p.lead{color:var(--muted);margin-top:0}
 .grid{display:grid;gap:12px}
 @media(min-width:680px){.grid.cols2{grid-template-columns:1fr 1fr}.grid.cols3{grid-template-columns:1fr 1fr 1fr}}
 label{display:block;font-size:13px;color:var(--muted);margin:0 0 5px;font-weight:600}
-input,select,textarea{
-  width:100%;background:var(--surface2);border:1px solid var(--line);color:var(--text);
-  border-radius:10px;padding:11px 12px;outline:none
-}
+input,select,textarea{width:100%;background:var(--surface2);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:11px 12px;outline:none}
 input:focus,select:focus,textarea:focus{border-color:var(--accent)}
 textarea{min-height:80px;resize:vertical}
 .field{margin-bottom:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:10px;
-  padding:11px 16px;font-weight:700;cursor:pointer;background:var(--accent);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer;background:var(--accent);color:#fff}
 .btn:active{transform:translateY(1px)}
 .btn.sec{background:var(--surface2);color:var(--text);border:1px solid var(--line)}
 .btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
@@ -91,10 +73,8 @@ th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4p
 .photos{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
 .photo{position:relative;width:92px;height:92px;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--surface2)}
 .photo img{width:100%;height:100%;object-fit:cover}
-.photo .rm{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.65);
-  color:#fff;border:0;cursor:pointer;font-size:13px;line-height:22px;text-align:center}
-.add-photo{width:92px;height:92px;border:2px dashed var(--line);border-radius:10px;display:flex;align-items:center;
-  justify-content:center;flex-direction:column;gap:4px;color:var(--muted);cursor:pointer;font-size:12px;text-align:center}
+.photo .rm{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;border:0;cursor:pointer;font-size:13px;line-height:22px;text-align:center}
+.add-photo{width:92px;height:92px;border:2px dashed var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;color:var(--muted);cursor:pointer;font-size:12px;text-align:center}
 .saved-item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--surface)}
 .saved-item .meta{flex:1;min-width:0}
 .saved-item .meta .ttl{font-weight:700}
@@ -103,9 +83,7 @@ th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4p
 .totals .row{display:flex;justify-content:space-between;padding:6px 0}
 .totals .row.grand{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;font-size:20px;font-weight:800}
 .empty{text-align:center;color:var(--muted);padding:40px 16px}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--accent2);color:#04210f;
-  padding:12px 18px;border-radius:999px;font-weight:700;z-index:200;box-shadow:0 8px 30px rgba(0,0,0,.4);opacity:0;
-  pointer-events:none;transition:.25s}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--accent2);color:#04210f;padding:12px 18px;border-radius:999px;font-weight:700;z-index:200;box-shadow:0 8px 30px rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:.25s}
 .toast.show{opacity:1}
 .kbd{font-family:monospace;background:var(--surface2);padding:1px 6px;border-radius:6px;border:1px solid var(--line)}
 .calc-result{background:var(--surface2);border:1px solid var(--accent);border-radius:12px;padding:14px;margin-top:12px}
@@ -120,8 +98,7 @@ th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4p
 .switch.on{background:var(--accent2);border-color:var(--accent2)}
 .switch .knob{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
 .switch.on .knob{left:21px}
-.upload-bar{width:100%;border:1.5px dashed var(--accent);background:var(--surface);color:var(--accent);border-radius:12px;
-  padding:13px;text-align:center;font-weight:700;cursor:pointer;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px}
+.upload-bar{width:100%;border:1.5px dashed var(--accent);background:var(--surface);color:var(--accent);border-radius:12px;padding:13px;text-align:center;font-weight:700;cursor:pointer;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px}
 .msgs{flex:1;overflow-y:auto;padding:4px 2px 8px;display:flex;flex-direction:column;gap:12px}
 .msg{max-width:88%;padding:12px 14px;border-radius:14px;white-space:pre-wrap;word-wrap:break-word;line-height:1.5}
 .msg.bot{background:var(--surface);border:1px solid var(--line);align-self:flex-start;border-top-left-radius:4px}
@@ -141,11 +118,7 @@ th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4p
 .pending-photo img{width:54px;height:54px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
 .pending-photo .rm{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--danger);color:#fff;border:0;cursor:pointer;font-size:12px}
 .ai-note{font-size:12px;color:var(--warn);margin-top:8px}
-@media print{
-  header.top,nav.tabs,.no-print{display:none!important}
-  body{background:#fff;color:#000}
-  .card{border:1px solid #ccc;break-inside:avoid}
-}
+@media print{header.top,nav.tabs,.no-print{display:none!important}body{background:#fff;color:#000}.card{border:1px solid #ccc;break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -167,13 +140,12 @@ th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4p
 <script>
 "use strict";
 var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
-var state={lang:LS.get('fp_lang','en'),tab:'nec',necSection:'chat',chat:LS.get('fp_chat',[]),aiOn:LS.get('fp_aiOn',true),pendingPhoto:null,invoices:LS.get('fp_invoices',[]),reports:LS.get('fp_reports',[]),settings:LS.get('fp_settings',{bizName:'',bizPhone:'',bizEmail:'',bizAddr:''}),editingInvoice:null,editingReport:null};
+var state={lang:LS.get('fp_lang','en'),tab:'nec',chat:LS.get('fp_chat',[]),aiOn:LS.get('fp_aiOn',true),pendingPhoto:null,invoices:LS.get('fp_invoices',[]),reports:LS.get('fp_reports',[]),settings:LS.get('fp_settings',{bizName:'',bizPhone:'',bizEmail:'',bizAddr:''}),editingInvoice:null,editingReport:null};
 function saveInvoices(){LS.set('fp_invoices',state.invoices);}
 function saveReports(){LS.set('fp_reports',state.reports);}
 function saveSettings(){LS.set('fp_settings',state.settings);}
-var T={en:{tab_nec:"NEC Assistant",tab_inv:"Invoices",tab_rep:"Job Reports",tab_set:"Settings",nec_chat:"AI Chat",nec_reference:"Code Reference",nec_calc:"Calculators",nec_equip:"Equipment",nec_trouble:"Troubleshooting",nec_weather:"Weather Safety",nec_glossary:"Glossary",nec_title:"NEC 2020/2023 Assistant",nec_sub:"Interactive assistant -- ask in any language.",ai_chat:"AI Chat",upload_photo:"Upload Photo for Analysis",chat_welcome:"Hi! I'm your NEC code assistant.",chat_placeholder:"Ask about NEC 2020/2023 codes, equipment specs...",chat_thinking:"Thinking...",you:"You",assistant:"NEC Assistant",ai_not_config:"AI mode is off or not connected.",photo_needs_ai:"Photo analysis needs AI Chat turned on.",save:"Save",duplicate:"Duplicate",delete:"Delete",edit:"Edit",cancel:"Cancel",newItem:"New",back:"Back",print:"Print / PDF",email:"Email",text:"Text",share:"Share",clear:"Clear",add:"Add",remove:"Remove",saved:"Saved",deleted:"Deleted",copied:"Duplicated",nothingSaved:"Nothing saved yet.",confirmDelete:"Delete this? This cannot be undone.",inv_title:"Invoices",inv_sub:"Create and manage invoices.",inv_new:"New Invoice",inv_type:"Invoice type",type_elec:"Electrical",type_solar:"Solar / HVAC",type_trouble:"Troubleshooting",inv_number:"Invoice #",inv_date:"Date",inv_due:"Due date",inv_status:"Status",st_draft:"Draft",st_sent:"Sent",st_paid:"Paid",billto:"Bill to",client_name:"Client name",client_addr:"Address",client_phone:"Phone",client_email:"Email",system_ref:"System reference",system_type:"System type",brand:"Brand / make",items:"Line items",desc:"Description",qty:"Qty",rate:"Rate",amount:"Amount",addItem:"Add line",notes:"Notes",terms:"Notes / terms",tax:"Tax %",subtotal:"Subtotal",total:"Total",photos:"Photos",addPhoto:"Add photo",photoHint:"From files or camera",savedInvoices:"Saved invoices",rep_title:"Job Reports",rep_sub:"Field service reports.",rep_new:"New Report",job_no:"Job #",job_type:"Job type",crew:"Crew",phase:"Phase",inspection:"Inspection type",site:"Site / customer",tech:"Technician",date:"Date",work_done:"Work performed",materials:"Materials used",issues:"Issues found",recs:"Recommendations",savedReports:"Saved reports",sol:"Solar PV (SOL)",bat:"Battery / ESS (BAT)",roo:"Roofing (ROO)",ph_scheduled:"Scheduled",ph_progress:"In Progress",ph_qc:"QC",ph_complete:"Complete",set_title:"Settings",set_sub:"Your details auto-fill the From section.",biz_name:"Your name / business",biz_phone:"Phone",biz_email:"Email",biz_addr:"Address",set_data:"Data",set_export:"Export all data",set_import:"Import data",set_wipe:"Erase all data",set_wipeConfirm:"Erase ALL data on this device?",storedLocally:"All data is stored locally on this device only.",from:"From",select:"Select...",untitled:"Untitled"},es:{tab_nec:"Asistente NEC",tab_inv:"Facturas",tab_rep:"Reportes",tab_set:"Ajustes"}};
-function t(k){var l=T[state.lang]||T.en;return(l[k]!=null)?l[k]:(T.en[k]!=null?T.en[k]:k);}
-function L(o){if(o==null)return "";return(typeof o==='object')?(o[state.lang]!=null?o[state.lang]:o.en):o;}
+var T={en:{tab_nec:'NEC Assistant',tab_inv:'Invoices',tab_rep:'Job Reports',tab_set:'Settings',nec_title:'NEC 2020/2023 Assistant',nec_sub:'Interactive assistant — ask in any language.',ai_chat:'AI Chat',upload_photo:'Upload Photo for Analysis',chat_welcome:'Hi! I am your NEC code assistant — ask me anything about solar, battery, roofing electrical, equipment specs, or troubleshooting. I understand English and Spanish.',chat_placeholder:'Ask about NEC 2020/2023 codes, equipment specs...',chat_thinking:'Thinking...',you:'You',assistant:'NEC Assistant',ai_not_config:'AI mode is off — answering from built-in knowledge base. Turn on AI Chat and set an API key in Vercel for full answers.',photo_needs_ai:'Photo analysis needs AI Chat turned on (with an API key set in Vercel).',save:'Save',duplicate:'Duplicate',delete:'Delete',edit:'Edit',cancel:'Cancel',newItem:'New',back:'Back',print:'Print / PDF',email:'Email',text:'Text',share:'Share',saved:'Saved',deleted:'Deleted',copied:'Duplicated',nothingSaved:'Nothing saved yet.',confirmDelete:'Delete this? This cannot be undone.',inv_title:'Invoices',inv_sub:'Create and manage invoices for electrical, solar/HVAC and troubleshooting work.',inv_new:'New Invoice',inv_type:'Invoice type',type_elec:'Electrical',type_solar:'Solar / HVAC',type_trouble:'Troubleshooting',inv_number:'Invoice #',inv_date:'Date',inv_due:'Due date',inv_status:'Status',st_draft:'Draft',st_sent:'Sent',st_paid:'Paid',billto:'Bill to',client_name:'Client name',client_addr:'Address',client_phone:'Phone',client_email:'Email',system_type:'System type',brand:'Brand',items:'Line items',desc:'Description',qty:'Qty',rate:'Rate',amount:'Amount',addItem:'Add line',notes:'Notes',terms:'Notes / terms',tax:'Tax %',subtotal:'Subtotal',total:'Total',photos:'Photos',addPhoto:'Add photo',photoHint:'From files or camera',savedInvoices:'Saved invoices',rep_title:'Job Reports',rep_sub:'Field service reports — job, crew, phase, inspections, work and photos.',rep_new:'New Report',job_no:'Job #',job_type:'Job type',crew:'Crew',phase:'Phase',inspection:'Inspection type',site:'Site / customer',tech:'Technician',date:'Date',work_done:'Work performed',materials:'Materials used',issues:'Issues found',recs:'Recommendations',savedReports:'Saved reports',sol:'Solar PV (SOL)',bat:'Battery / ESS (BAT)',roo:'Roofing (ROO)',ph_scheduled:'Scheduled',ph_progress:'In Progress',ph_qc:'QC',ph_complete:'Complete',set_title:'Settings',set_sub:'Your details auto-fill invoices and reports. Stored only on this device.',biz_name:'Your name / business',biz_phone:'Phone',biz_email:'Email',biz_addr:'Address',set_data:'Data',set_export:'Export all data',set_import:'Import data',set_wipe:'Erase all data',set_wipeConfirm:'Erase ALL data on this device?',storedLocally:'All data is stored locally on this device only.',from:'From',select:'Select...',untitled:'Untitled'},es:{tab_nec:'Asistente NEC',tab_inv:'Facturas',tab_rep:'Reportes',tab_set:'Ajustes',save:'Guardar',delete:'Eliminar',edit:'Editar',back:'Atrás',saved:'Guardado',deleted:'Eliminado',from:'De',untitled:'Sin título'}};
+function t(k){var l=T[state.lang]||T.en;return(l[k]!=null?l[k]:(T.en[k]!=null?T.en[k]:k));}
 function el(id){return document.getElementById(id);}
 function esc(s){return(s==null?'':String(s)).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
@@ -183,8 +155,56 @@ function toast(msg){var e=document.getElementById('toast');e.textContent=msg;e.c
 function setLang(l){state.lang=l;LS.set('fp_lang',l);document.documentElement.lang=l;render();}
 var TABS=[['nec','tab_nec','⚡'],['inv','tab_inv','🧾'],['rep','tab_rep','📋'],['set','tab_set','⚙️']];
 function go(tab){state.tab=tab;state.editingInvoice=null;state.editingReport=null;window.scrollTo(0,0);render();}
-function renderTabs(){el('lang-en').className=state.lang==='en'?'active':'';el('lang-es').className=state.lang==='es'?'active':'';el('tabs').innerHTML=TABS.map(function(x){return '<button class="'+(state.tab===x[0]?'active':'')+'" onclick="go(''+x[0]+'')"><span>'+x[2]+'</span>'+esc(t(x[1]))+'</button>';}).join('');}
-function render(){document.documentElement.lang=state.lang;renderTabs();var v=el('view');v.innerHTML='<p>Field Pro loaded. Full version includes NEC Assistant, Invoices, Job Reports, and Settings.</p>';}
+function renderTabs(){el('lang-en').className=state.lang==='en'?'active':'';el('lang-es').className=state.lang==='es'?'active':'';el('tabs').innerHTML=TABS.map(function(x){return '<button class="'+(state.tab===x[0]?'active':'')+' " onclick="go(\''+ x[0]+'\')">'+'<span>'+x[2]+'</span>'+esc(t(x[1]))+'</button>';}).join('');}
+function render(){document.documentElement.lang=state.lang;renderTabs();var v=el('view');if(state.tab==='nec')v.innerHTML=renderNEC();else if(state.tab==='inv')v.innerHTML=renderInvoices();else if(state.tab==='rep')v.innerHTML=renderReports();else if(state.tab==='set')v.innerHTML=renderSettings();if(state.tab==='nec')afterNEC();}
+function val(id){var e=el(id);return e?e.value:'';}
+function field(lk,type,id,v){return '<div class="field"><label>'+esc(t(lk))+'</label><input type="'+type+'" id="'+id+'" value="'+esc(v||'')+'"></div>';}
+function renderNEC(){return '<h1>'+esc(t('nec_title'))+'</h1><p class="lead">'+esc(t('nec_sub'))+'</p>'+necChat();}
+function necChat(){var h='<div class="chat-wrap">';h+='<div class="chat-top"><span>'+esc(t('ai_chat'))+'</span></div>';h+='<label class="upload-bar">📷 '+esc(t('upload_photo'))+'<input type="file" accept="image/*" style="display:none" onchange="chatPhoto(this)"></label>';h+='<div class="msgs" id="chat_msgs">'+chatMessagesHtml()+'</div>';h+='<div id="pending_photo_wrap"></div>';h+='<div class="chat-input"><textarea id="chat_ta" rows="1" placeholder="'+esc(t('chat_placeholder'))+'" oninput="autoGrow(this)"></textarea><button class="icon-btn send" onclick="chatSend()">&#10148;</button></div>';h+='</div>';return h;}
+function chatMessagesHtml(){var out='<div class="msg bot">'+esc(t('chat_welcome'))+'</div>';state.chat.forEach(function(m){if(m.role==='user')out+='<div class="msg user">'+esc(m.text)+'</div>';else out+='<div class="msg bot">'+esc(m.text)+'</div>';});return out;}
+function toggleAI(){state.aiOn=!state.aiOn;LS.set('fp_aiOn',state.aiOn);render();}
+function autoGrow(ta){ta.style.height='auto';ta.style.height=Math.min(ta.scrollHeight,120)+'px';}
+function scrollMsgs(){var m=el('chat_msgs');if(m)m.scrollTop=m.scrollHeight;}
+function chatSend(){var ta=el('chat_ta');if(!ta)return;var text=(ta.value||'').trim();if(!text)return;state.chat.push({role:'user',text:text});appendMsg('user',text,null);ta.value='';autoGrow(ta);try{LS.set('fp_chat',state.chat.slice(-40));}catch(e){}var typing=appendMsg('assistant',t('chat_thinking'));if(typing)typing.classList.add('typing');if(state.aiOn){callAI(state.chat,null,function(reply,ok){if(typing)typing.remove();pushBot(ok?reply:localAnswer(text,false));});}else{setTimeout(function(){if(typing)typing.remove();pushBot(localAnswer(text,false));},250);}}
+function pushBot(text){state.chat.push({role:'assistant',text:text});appendMsg('assistant',text);try{LS.set('fp_chat',state.chat.slice(-40));}catch(e){}}
+function appendMsg(role,text,image){var m=el('chat_msgs');if(!m)return null;var div=document.createElement('div');div.className='msg '+(role==='user'?'user':'bot');div.textContent=text;m.appendChild(div);scrollMsgs();return div;}
+function callAI(history,image,cb){var payload={lang:state.lang,messages:history.map(function(m){return{role:m.role,text:m.text};}),image:null};fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j};});}).then(function(res){if(res.ok&&res.j&&res.j.reply)cb(res.j.reply,true);else cb(null,false);}).catch(function(){cb(null,false);});}
+function localAnswer(q,hasImage){var s=(q||'').toLowerCase();if(hasImage)return t('photo_needs_ai');if(s.indexOf('powerwall')>=0||s.indexOf('tesla')>=0)return 'Tesla Powerwall 3: 120/240V split-phase, 13.5 kWh/unit, 5.8-11.5 kW continuous, NEMA 3R. AC breaker ~60A. EGC per Table 250.122.';if(s.indexOf('gfci')>=0||s.indexOf('afci')>=0)return 'GFCI (210.8): bathrooms, garages, outdoors, kitchens (within 6ft of sink), basements. AFCI (210.12): bedrooms, living rooms, kitchens, hallways, closets.';if(s.indexOf('solar')>=0||s.indexOf('690')>=0)return 'NEC 690: conductors at 125% array Isc (690.8B), rapid shutdown (690.12), GFP >5kW (690.5).';if(s.indexOf('battery')>=0||s.indexOf('706')>=0)return 'NEC 706: disconnect (706.15), OCP (706.16), ventilation, BMS required on lithium.';return 'Turn on AI Chat with an API key in Vercel for full answers.';}
+function chatPhoto(input){var files=Array.prototype.slice.call(input.files||[]);if(!files.length)return;var f=files[0];if(!/^image\//.test(f.type))return;var reader=new FileReader();reader.onload=function(e){state.pendingPhoto=e.target.result;};reader.readAsDataURL(f);input.value='';}
+function clearPendingPhoto(){state.pendingPhoto=null;}
+function afterNEC(){var ta=el('chat_ta');if(ta)autoGrow(ta);scrollMsgs();}
+function blankInvoice(){return{id:uid(),type:'elec',number:'INV-'+(state.invoices.length+1001),date:todayISO(),due:'',status:'draft',client:{name:'',addr:'',phone:'',email:''},items:[{desc:'',qty:1,rate:0}],notes:'',tax:0,created:Date.now()};}
+function renderInvoices(){if(state.editingInvoice)return invoiceEditor(state.editingInvoice);var h='<h1>'+esc(t('inv_title'))+'</h1><p class="lead">'+esc(t('inv_sub'))+'</p>';h+='<button class="btn" onclick="newInvoice()">+ '+esc(t('inv_new'))+'</button>';if(!state.invoices.length){h+='<p>'+esc(t('nothingSaved'))+'</p>';return h;}h+=state.invoices.slice().sort(function(a,b){return b.created-a.created;}).map(function(inv){return'<div class="saved-item"><div class="meta"><div class="ttl">'+esc(inv.number||'—')+' — '+esc(inv.client.name||'—')+'</div><div class="sub">'+esc(inv.date)+' · '+money(invoiceTotal(inv).total)+'</div></div><div class="btn-row"><button class="btn sec sm" onclick="editInvoice(\''+inv.id+'\')">'+'Edit</button><button class="btn danger sm" onclick="delInvoice(\''+inv.id+'\')">'+'Del</button></div></div>';}).join('');return h;}
+function newInvoice(){state.editingInvoice=blankInvoice();render();}
+function editInvoice(id){var inv=state.invoices.find(function(x){return x.id===id;});if(inv){state.editingInvoice=JSON.parse(JSON.stringify(inv));render();}}
+function delInvoice(id){if(!confirm(t('confirmDelete')))return;state.invoices=state.invoices.filter(function(x){return x.id!==id;});saveInvoices();toast(t('deleted'));render();}
+function invoiceTotal(inv){var sub=0;(inv.items||[]).forEach(function(it){sub+=(Number(it.qty)||0)*(Number(it.rate)||0);});var taxAmt=sub*(Number(inv.tax)||0)/100;return{sub:sub,tax:taxAmt,total:sub+taxAmt};}
+function invItemsHtml(inv){return '<table><thead><tr><th>Description</th><th>Qty</th><th>Rate</th><th>Amount</th><th></th></tr></thead><tbody>'+inv.items.map(function(it,i){var amt=(Number(it.qty)||0)*(Number(it.rate)||0);return'<tr><td><input value="'+esc(it.desc)+'" oninput="updItem('+i+',\'desc\',this.value)"></td><td><input type="number" style="width:70px" value="'+it.qty+'" oninput="updItem('+i+',\'qty\',this.value)"></td><td><input type="number" style="width:90px" value="'+it.rate+'" oninput="updItem('+i+',\'rate\',this.value)"></td><td id="amt_'+i+'">'+money(amt)+'</td><td><button class="btn ghost sm" onclick="rmItem('+i+')">x</button></td></tr>';}).join('')+'</tbody></table>';}
+function invTotalsHtml(inv){var tt=invoiceTotal(inv);return'<div class="totals"><div class="row"><span>Subtotal</span><span>'+money(tt.sub)+'</span></div><div class="row"><span>Tax</span><span>'+money(tt.tax)+'</span></div><div class="row grand"><span>Total</span><span>'+money(tt.total)+'</span></div></div>';}
+function invoiceEditor(inv){var h='<button class="btn ghost sm" onclick="closeInvoice()">Back</button>';h+='<div class="card"><div class="grid cols2">'+field('inv_number','text','iv_number',inv.number)+field('inv_date','date','iv_date',inv.date)+field('inv_due','date','iv_due',inv.due)+'</div></div>';h+='<div class="card"><h3>Bill To</h3>'+field('client_name','text','iv_cname',inv.client.name)+field('client_phone','tel','iv_cphone',inv.client.phone)+field('client_email','email','iv_cemail',inv.client.email)+'</div>';h+='<div class="card"><h3>Line Items</h3><div id="iv_items">'+invItemsHtml(inv)+'</div><button class="btn sec sm" onclick="addInvItem()">+ Add</button><div class="field"><label>Tax %</label><input type="number" id="iv_tax" value="'+(inv.tax||0)+'" oninput="recalcInv()"></div><div id="iv_totals">'+invTotalsHtml(inv)+'</div></div>';h+='<div class="card"><div class="field"><label>Notes</label><textarea id="iv_notes">'+esc(inv.notes)+'</textarea></div></div>';h+='<div class="btn-row"><button class="btn green" onclick="saveInvoice()">Save</button><button class="btn sec" onclick="window.print()">Print</button><button class="btn sec" onclick="emailInvoice()">Email</button><button class="btn sec" onclick="shareInvoice()">Share</button></div>';return h;}
+function syncInvFields(){var inv=state.editingInvoice;if(!inv)return;inv.number=val('iv_number');inv.date=val('iv_date');inv.due=val('iv_due');inv.client.name=val('iv_cname');inv.client.phone=val('iv_cphone');inv.client.email=val('iv_cemail');inv.notes=val('iv_notes');inv.tax=Number(val('iv_tax'))||0;}
+function addInvItem(){state.editingInvoice.items.push({desc:'',qty:1,rate:0});el('iv_items').innerHTML=invItemsHtml(state.editingInvoice);}
+function rmItem(i){var inv=state.editingInvoice;inv.items.splice(i,1);if(!inv.items.length)inv.items.push({desc:'',qty:1,rate:0});el('iv_items').innerHTML=invItemsHtml(inv);}
+function updItem(i,k,v){var inv=state.editingInvoice;inv.items[i][k]=v;var it=inv.items[i];var amt=(Number(it.qty)||0)*(Number(it.rate)||0);var c=el('amt_'+i);if(c)c.textContent=money(amt);el('iv_totals').innerHTML=invTotalsHtml(inv);}
+function recalcInv(){state.editingInvoice.tax=Number(val('iv_tax'))||0;el('iv_totals').innerHTML=invTotalsHtml(state.editingInvoice);}
+function closeInvoice(){state.editingInvoice=null;render();}
+function saveInvoice(){syncInvFields();var inv=state.editingInvoice;var idx=state.invoices.findIndex(function(x){return x.id===inv.id;});if(idx>=0)state.invoices[idx]=inv;else state.invoices.push(inv);try{saveInvoices();toast(t('saved'));}catch(e){alert('Storage full.');}render();}
+function emailInvoice(){syncInvFields();var inv=state.editingInvoice;var tt=invoiceTotal(inv);window.location.href='mailto:'+encodeURIComponent(inv.client.email||'')+'?subject=Invoice '+inv.number+'&body='+encodeURIComponent('Invoice '+inv.number+'\nClient: '+(inv.client.name||'')+'\nTotal: '+money(tt.total));}
+function shareInvoice(){syncInvFields();var inv=state.editingInvoice;var text='Invoice '+inv.number+'\nTotal: '+money(invoiceTotal(inv).total);if(navigator.share){navigator.share({title:text,text:text}).catch(function(){});}else{navigator.clipboard&&navigator.clipboard.writeText(text);toast('Copied');}}
+function blankReport(){return{id:uid(),jobNo:'DL-',jobType:'SOL',crew:'',phase:'scheduled',site:'',addr:'',tech:state.settings.bizName||'',date:todayISO(),work:'',materials:'',issues:'',recs:'',created:Date.now()};}
+function renderReports(){if(state.editingReport)return reportEditor(state.editingReport);var h='<h1>'+esc(t('rep_title'))+'</h1><p class="lead">'+esc(t('rep_sub'))+'</p>';h+='<button class="btn" onclick="newReport()">+ '+esc(t('rep_new'))+'</button>';if(!state.reports.length){h+='<p>'+esc(t('nothingSaved'))+'</p>';return h;}h+=state.reports.slice().sort(function(a,b){return b.created-a.created;}).map(function(r){return'<div class="saved-item"><div class="meta"><div class="ttl">'+esc(r.jobNo||'—')+'</div><div class="sub">'+esc(r.site||'—')+' · '+esc(r.date)+'</div></div><div class="btn-row"><button class="btn sec sm" onclick="editReport(\''+r.id+'\')">'+'Edit</button><button class="btn danger sm" onclick="delReport(\''+r.id+'\')">'+'Del</button></div></div>';}).join('');return h;}
+function newReport(){state.editingReport=blankReport();render();}
+function editReport(id){var r=state.reports.find(function(x){return x.id===id;});if(r){state.editingReport=JSON.parse(JSON.stringify(r));render();}}
+function delReport(id){if(!confirm(t('confirmDelete')))return;state.reports=state.reports.filter(function(x){return x.id!==id;});saveReports();toast(t('deleted'));render();}
+function reportEditor(r){var h='<button class="btn ghost sm" onclick="closeReport()">Back</button>';h+='<div class="card"><div class="grid cols2">'+field('job_no','text','rp_jobno',r.jobNo)+field('site','text','rp_site',r.site)+field('date','date','rp_date',r.date)+field('tech','text','rp_tech',r.tech)+'</div></div>';h+='<div class="card"><div class="field"><label>Work Performed</label><textarea id="rp_work">'+esc(r.work)+'</textarea></div><div class="field"><label>Materials</label><textarea id="rp_materials">'+esc(r.materials)+'</textarea></div><div class="field"><label>Issues</label><textarea id="rp_issues">'+esc(r.issues)+'</textarea></div></div>';h+='<div class="btn-row"><button class="btn green" onclick="saveReport()">Save</button><button class="btn sec" onclick="window.print()">Print</button><button class="btn sec" onclick="shareReport()">Share</button></div>';return h;}
+function syncRepFields(){var r=state.editingReport;if(!r)return;r.jobNo=val('rp_jobno');r.site=val('rp_site');r.date=val('rp_date');r.tech=val('rp_tech');r.work=val('rp_work');r.materials=val('rp_materials');r.issues=val('rp_issues');}
+function closeReport(){state.editingReport=null;render();}
+function saveReport(){syncRepFields();var r=state.editingReport;var idx=state.reports.findIndex(function(x){return x.id===r.id;});if(idx>=0)state.reports[idx]=r;else state.reports.push(r);try{saveReports();toast(t('saved'));}catch(e){alert('Storage full.');}render();}
+function shareReport(){syncRepFields();var r=state.editingReport;var text='Report '+r.jobNo+'\nSite: '+(r.site||'')+'\nDate: '+r.date+'\nWork: '+r.work;if(navigator.share){navigator.share({title:'Report '+r.jobNo,text:text}).catch(function(){});}else{navigator.clipboard&&navigator.clipboard.writeText(text);toast('Copied');}}
+function renderSettings(){var s=state.settings;var h='<h1>'+esc(t('set_title'))+'</h1><p class="lead">'+esc(t('set_sub'))+'</p>';h+='<div class="card"><div class="grid cols2">'+field('biz_name','text','st_name',s.bizName)+field('biz_phone','tel','st_phone',s.bizPhone)+field('biz_email','email','st_email',s.bizEmail)+field('biz_addr','text','st_addr',s.bizAddr)+'</div><button class="btn green" onclick="saveSet()">Save</button></div>';h+='<div class="card"><h3>Data</h3><p class="note">All data stored locally on this device only.</p><div class="btn-row"><button class="btn sec sm" onclick="exportData()">Export</button><button class="btn danger sm" onclick="wipeData()">Erase All</button></div></div>';return h;}
+function saveSet(){state.settings={bizName:val('st_name'),bizPhone:val('st_phone'),bizEmail:val('st_email'),bizAddr:val('st_addr')};saveSettings();toast(t('saved'));}
+function exportData(){var data={invoices:state.invoices,reports:state.reports,settings:state.settings,exported:new Date().toISOString()};var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='fieldpro-backup.json';a.click();}
+function wipeData(){if(!confirm('Erase ALL data?'))return;state.invoices=[];state.reports=[];state.settings={bizName:'',bizPhone:'',bizEmail:'',bizAddr:''};saveInvoices();saveReports();saveSettings();toast(t('deleted'));render();}
 document.documentElement.lang=state.lang;
 render();
 </script>
